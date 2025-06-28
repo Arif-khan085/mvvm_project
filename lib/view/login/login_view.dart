@@ -38,6 +38,7 @@ class _LoginViewState extends State<LoginView> {
               child: Column(
                 children: [
                   TextFormField(
+                    keyboardType: TextInputType.emailAddress,
                     controller: loginVM.emailController.value,
                     focusNode: loginVM.emailFocusNode.value,
                     validator: (value){
@@ -56,6 +57,7 @@ class _LoginViewState extends State<LoginView> {
                   ),
                   SizedBox(height: 20,),
                   TextFormField(
+                    keyboardType: TextInputType.text,
                     controller: loginVM.passwordController.value,
                     focusNode: loginVM.passwordFocusNode.value,
                     obscureText: true,
@@ -80,11 +82,13 @@ class _LoginViewState extends State<LoginView> {
             ),
 
             SizedBox(height: 10,),
-            RoundButton(title: 'Login'.tr, onPress: (){
-              if(_formkey.currentState!.validate()){
+            Obx(()=>RoundButton(title: 'Login'.tr,
+                loading: loginVM.loading.value,
+                onPress: (){
+                  if(_formkey.currentState!.validate()){
 
-              };
-            })
+                  };
+                }),)
           ],
         ),
       ),

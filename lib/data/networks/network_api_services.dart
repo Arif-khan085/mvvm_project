@@ -63,7 +63,9 @@ class NetworkApiServices extends BaseApiServices {
     } catch (e) {
       throw FetchDataException('Unexpected error: $e');
     }
-
+    if(kDebugMode){
+      print(responseJson);
+    }
     return responseJson;
   }
 
