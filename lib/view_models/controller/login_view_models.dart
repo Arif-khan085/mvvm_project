@@ -6,6 +6,7 @@ import 'package:getx_mvvm_project/utils/utils.dart';
 
 class LoginViewModels extends GetxController{
 
+
   final _api = LoginRepository();
 
 
